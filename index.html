@@ -1,0 +1,112 @@
+<!--SAHIL SHAH -CodSoft
+CodSoft InternShips Level 1 TASK 3
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+<style type="text/css">
+body {
+    background-color: #f2f2f2;
+}
+
+.calculator {
+    margin: 50px auto;
+    padding: 10px;
+    width: 250px;
+    background-color: #ddd;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    font-size: 20px;
+}
+
+button {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border: 1px solid #999;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #eee;
+}
+
+</style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="result" readonly>
+        <table>
+            <tr>
+                <td><button onclick="clearResult()">C</button></td>
+                <td><button onclick="backspace()">←</button></td>
+                <td><button onclick="insert('%')">%</button></td>
+                <td><button onclick="insert('/')">/</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="insert('7')">7</button></td>
+                <td><button onclick="insert('8')">8</button></td>
+                <td><button onclick="insert('9')">9</button></td>
+                <td><button onclick="insert('*')">*</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="insert('4')">4</button></td>
+                <td><button onclick="insert('5')">5</button></td>
+                <td><button onclick="insert('6')">6</button></td>
+                <td><button onclick="insert('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="insert('1')">1</button></td>
+                <td><button onclick="insert('2')">2</button></td>
+                <td><button onclick="insert('3')">3</button></td>
+                <td><button onclick="insert('+')">+</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button onclick="insert('0')">0</button></td>
+                <td><button onclick="insert('.')">.</button></td>
+                <td><button onclick="calculate()">=</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        let result = document.getElementById('result');
+
+        function insert(char) {
+            result.value += char;
+        }
+
+        function clearResult() {
+            result.value = '';
+        }
+
+        function backspace() {
+            result.value = result.value.slice(0, -1);
+        }
+
+        function calculate() {
+            try {
+                result.value = eval(result.value);
+            } catch (error) {
+                result.value = 'Error';
+            }
+        }
+
+    </script>
+
+</body>
+</html>
